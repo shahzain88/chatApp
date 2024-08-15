@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}Document</title>
+</head>
+<body>
+    <headder>
+    <h1>Locked Chat Rooms</h>
+     {% if request.user.is_authenticated %} 
+        <a href='/rooms/' >Rooms</a>
+        <a href='/logout/' >logout</a>
+     {% else %}  
+
+     <a href='/login/' >Login</a>
+     {%endif%}
+
+     {% if request.user.is_superuser %}
+     <a href='/signup/' >Signup</a>
+
+     {%endif%} 
+    </headder>
+
+    {% block content %} 
+    {% endblock %}
+    
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+</html>

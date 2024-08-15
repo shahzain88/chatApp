@@ -1,0 +1,17 @@
+{% extends "core/base.html" %}
+{% block title %} Rooms {% endblock %}
+
+{% block content %}
+
+<h2>Rooms</h2>
+<div>
+
+    {% for room in rooms %}
+    <div>
+            <p>{{room.name}}</p>
+            <a href={% url "room" room.slug %}>Join</a>
+    </div>
+    {%endfor%}
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "core/base.html" %}
+{% block title %} login {% endblock %}
+
+{% block content %} 
+
+<h2>Login</h2>
+<form method='POST' action='.'>
+    {% csrf_token %}
+
+    <div>
+        <input type="text" name='username' placeholder='your name'>
+    </div>
+    <div>
+        <input type="password" name='password' placeholder='password'>
+    </div>
+    {% if form.errors%}
+        {% for field  in form %}
+            {% for error  in field.errors%}
+                <div>
+                    <p>{{field.name}} {{error | escape}} </p>
+                </div>
+            {%endfor%}
+        {%endfor%}
+    {%endif%}
+
+    <button>login</button>
+        
+</form>
+
+{% endblock %}

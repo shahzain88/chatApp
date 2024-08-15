@@ -1,0 +1,7 @@
+# IDE ignores
+
+*/__pycache__/
+*/migrations/
+
+env.py
+db.sqlite3
