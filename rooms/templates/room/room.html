@@ -35,9 +35,12 @@
             const roomName= JSON.parse(document.getElementById("json-roomname").textContent);
             const userName= JSON.parse(document.getElementById("json-username").textContent);
 
-
+            let wsProtocol= "ws://"
+            if (window.location.protocol == 'https:') {
+                wsProtocol = 'wss://'
+            }
             const chatSocket = new WebSocket(
-                "ws://"
+                wsProtocol
                 +window.location.host
                 +"/ws/"
                 +roomName
@@ -60,6 +63,7 @@
             }
 
             chatSocket.onclose = function(e){
+                
                 console.log("on close")
                 console.log(e)
 

@@ -29,7 +29,7 @@ SECRET_KEY = load_SECRET_KEY()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','https://soliver88.pythonanywhere.com/','soliver88.pythonanywhere.com']
 
 # we can specify the reairect over hear
 
@@ -158,18 +158,18 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 # need to add
-STATICFILES_DIRS = (
-    BASE_DIR / "static",
-    os.path.join(BASE_DIR, 'assets'),
-)
+# STATICFILES_DIRS = (
+#     BASE_DIR / "static",
+#     os.path.join(BASE_DIR, 'assets'),
+# )
 
 # deu to  ?: (staticfiles.E002) The STATICFILES_DIRS setting should not contain the STATIC_ROOT setting. error we rurned it off
 # # in hosting mode
-# if not DEBUG:
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# else:
-# # in localmode
-#     STATIC_ROOT = '/static/'
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+else:
+# in localmode
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # need to add for imgs
